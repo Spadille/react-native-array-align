@@ -65,8 +65,7 @@ const numberInRow = 8,
       styleForSingleElement = [{flex:1, width:60,height:60,borderRadius:0,alignSelf:'center',margin:5}];
 ``` 
 
-<img src='test/image/IMG_0982.PNG' width="270" height="480">
-<img src='test/image/IMG_0983.PNG' width="270" height="480">
+<img src='test/image/IMG_0982.PNG' width="360" height="640"> <img src='test/image/IMG_0983.PNG' width="360" height="640">
 
 You can modify the numberInRow, to change the number in a single row, change the ratio of width/height to the 
 parent, change the style of how you want to display it by passing array of css property.
@@ -78,8 +77,7 @@ const numberInRow = 8,
       heightRatioFromParent = '100%';
       styleForSingleElement = [{flex:1, width:60,height:60,borderRadius:0,alignSelf:'center',margin:5}];
 ```
-<img src='test/image/IMG_0984.PNG' width="270" height="480">
-<img src='test/image/IMG_0985.PNG' width="270" height="480">
+<img src='test/image/IMG_0984.PNG' width="360" height="640"> <img src='test/image/IMG_0985.PNG' width="360" height="640">
 
 ## Properties
  name                   | description                                   | type       | default
