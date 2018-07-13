@@ -1,7 +1,8 @@
 {
-  "name": "reactNaiveCustomDropdown",
+  "name": "react-native-multiitems-align",
+  "author": "syzh",
   "version": "0.1.0",
-  "private": true,
+  "description": "this component is to help users to align array of object conveniently.",
   "devDependencies": {
     "babel-eslint": "^8.2.5",
     "babel-preset-flow": "^6.23.0",

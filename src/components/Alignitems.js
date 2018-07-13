@@ -9,39 +9,51 @@
  */
 
 'use strict';
-const ColorPropType = require('ColorPropType');
-const Platform = require('Platform');
 const React = require('React');
 const PropTypes = require('prop-types');
 const StyleSheet = require('StyleSheet');
-const Text = require('Text');
-const TouchableNativeFeedback = require('TouchableNativeFeedback');
 const TouchableOpacity = require('TouchableOpacity');
+const ColorPropType = require('ColorPropType');
 const View = require('View');
 
-
 class Alignitems extends React.Component<{
+	/**
+	  *width an height ratio used in outter style
+	  */
 	widthRatioFromParent:string,
 	heightRatioFromParent:string,
 	numberInARow: number,
-	totalDisplayItems:number,
-	items: array,
-	color?: ?string,
+	/**
+	  *number of element you want to display from items array you passed
+	  */
+	totalDisplayItems?:?number,
+	items: any,
+	color: string,
+	onPressFunc?:?Function,
+	elementStyle?:?any,
 }> {
 	static propTypes = {
 		widthRatioFromParent: PropTypes.string.isRequired,
 		heightRatioFromParent: PropTypes.string.isRequired,
 		numberInARow: PropTypes.number.isRequired,
-		totalDisplayItems: PropTypes.number.isRequired,
+		totalDisplayItems: PropTypes.number,
 		items: PropTypes.array.isRequired,
 		color: ColorPropType,
+		/**function you want to pass to each swatch, I think in this way you can utilize,
+		  * redux pattern to do unidirection flow. 
+		  */
+		onPressFunc: PropTypes.func,
+		/**
+		  * pass the style of single element from array of style.
+		  */
+		elementStyle: PropTypes.array,
 	};
 
 	/**
 	 * get array of array which contains elements for each row.
 	 */
 	setAllRows = ()=>{
-		const totalDisplayItems = this.props.totalDisplayItems;
+		const totalDisplayItems = this.props.totalDisplayItems?this.props.totalDisplayItems:this.props.items.length;
 		const items = this.props.items.slice(0,totalDisplayItems);
 		const numberInARow = this.props.numberInARow;
 	  	const viewList = [];
@@ -57,7 +69,16 @@ class Alignitems extends React.Component<{
 				}
 			}
 		  )
+		if(viewList.length>0) viewLists.push(viewList);
 		return viewLists;
+	}
+
+	press = () =>{
+		if(typeof this.props.onPressFunc !== 'undefined'){
+			this.props.onPressFunc();
+		} else {
+			console.log('function undefined!');
+		}
 	}
 
 	/**
@@ -65,12 +86,21 @@ class Alignitems extends React.Component<{
 	 * then set style of each single element.
 	 */
 	setSwatchesForEachRow = (viewList)=> {
+		const styles = this.props.elementStyle;
 		return (
-			viewList.map((swatch,index)=> (
-			  	<View key={index} style = {{flex:1, backgroundColor:swatch}}>
-			  		<Text>{index}</Text>
-			  	</View>
-				)
+			viewList.map((swatch,index)=> {
+					if(typeof this.props.onPressFunc !== 'undefined'){
+						return (
+							<TouchableOpacity key={index} style = {[{backgroundColor:swatch},styles]} onPress={this.press}>
+						  	</TouchableOpacity>
+						);
+					} else {
+						return (
+							<View key={index} style = {[{backgroundColor:swatch},styles]}>
+							</View>
+						);
+					}
+				}
 	  		)
 		)
 	}
@@ -85,28 +115,18 @@ class Alignitems extends React.Component<{
 		let curWidth = 100.0/numberInARow+'%';
 		let curHeight = 100.0/cols+'%'
 		const viewLists = this.setAllRows();
-		//console.log(viewLists);
-		//console.log(curWidth+'?'+curHeight);
 		const colStyles = [{flexDirection:'column', width:'100%',height:'100%',justifyContent:'center',alignItems:'center'}];
 		return ( 
 			<View style ={colStyles}>
 				{
 					viewLists.map((viewList,index)=>(
-					  	<View key={index} style={{flex:1,flexDirection:'row',alignItems:'stretch'}}>
+					  	<View key={index} style={{flex:1,flexDirection:'row',alignItems:'stretch',justifyContent:'center'}}>
 					   		{this.setSwatchesForEachRow(viewList)}
 					  	</View>
 				    ))
 				}
 			</View>
 		 );
-	}
-
-	test = () => {
-		return (
-				<View style = {{width:'20%',height:'50%',backgroundColor:'#fff'}}>
-					<Text>123</Text>
-				</View>
-			);
 	}
 
 	render(){
@@ -153,39 +173,3 @@ const styles = StyleSheet.create({
 });
 
 module.exports = Alignitems;
-
-
-
-// {this.state.swatches.slice(10,15).map((swatch, index) => (
-//   <TouchableOpacity
-//     key={index}
-//     style={[
-//       styles.swatch,
-//       {
-//         backgroundColor: swatch,
-//         marginRight: index < this.state.swatches.length - 1 ? 16 : 0
-//       }
-//     ]}
-//     onPress={() => {
-//           if(swatch=="#fff") return;
-//           if(this.state.index==1){
-//              this.setState({colorIndex1:swatch});
-//           }else if(this.state.index==2){
-//             this.setState({colorIndex2:swatch});
-//           }else if(this.state.index==3){
-//             this.setState({colorIndex3:swatch});
-//           }
-//           const c = this.state.counter+1;
-//           if(this.state.index==2 || this.state.index==1){
-//             const color1 = new mixture.Color(this.state.colorIndex1);
-//             const color2 = new mixture.Color(this.state.colorIndex2);
-//             const mix = color1.mix(color2,this.state.value/100);
-//             this.setState({color:swatch, mixtureColor:tinycolor(mix).toHsl(),counter:c});
-            
-//           }else if(this.state.index==3){
-//             this.setState({bgColor:swatch});
-//           }
-//       }
-//     }
-//   />
-//   ))}
