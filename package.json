@@ -1,8 +1,8 @@
 {
-  "name": "react-native-flex-helper",
+  "name": "react-native-arrayofelements-align",
   "author": "syzh",
   "version": "0.1.0",
-  "description": "this component is to help users to align array of object conveniently.",
+  "description": "this component is to help users to align array of objects in a convenient way.",
   "devDependencies": {
     "babel-eslint": "^8.2.5",
     "babel-preset-flow": "^6.23.0",

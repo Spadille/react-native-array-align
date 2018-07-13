@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 ## Installation
 
 ```bash
-npm i react-native-flex-helper
+npm i react-native-arrayofelements-align
 ```
 
 #Beta versions
