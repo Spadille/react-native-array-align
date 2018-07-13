@@ -5,7 +5,7 @@ This project was bootstrapped with [Create React Native App](https://github.com/
 ## Installation
 
 ```bash
-npm i react-native-multiitems-align'
+npm i react-native-flex-helper'
 ```
 
 #Beta versions
@@ -30,7 +30,6 @@ class Example extends Component {
   }
 
   render() {
-    onPressFunc = ()=>{this.setState({color:this.state.color2})}
     const numberInRow = 5,
           totalDisplayItems = 20,
           widthRatioFromParent = '60%',
@@ -60,7 +59,9 @@ const numberInRow = 8,
       heightRatioFromParent = '100%';
       styleForSingleElement = [{flex:1, width:60,height:60,borderRadius:0,alignSelf:'center',margin:5}];
 ``` 
-<img src='test/image/IMG_0982.PNG'>
+
+<img src='test/image/IMG_0982.PNG' width="360" height="640">
+
 
 ```javascript
 const numberInRow = 8,
@@ -69,8 +70,9 @@ const numberInRow = 8,
       heightRatioFromParent = '100%';
       styleForSingleElement = [{flex:1, width:60,height:60,borderRadius:0,alignSelf:'center',margin:5}];
 ```
-<img src='test/image/IMG_0983.PNG'>
-<img src='test/image/IMG_0983.PNG'>
+
+<img src='test/image/IMG_0983.PNG' width="360" height="640">
+<img src='test/image/IMG_0983.PNG' width="360" height="640">
 
 ## Properties
  name                   | description                                   | type       | default
