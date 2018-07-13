@@ -60,7 +60,7 @@ const numberInRow = 8,
       heightRatioFromParent = '100%';
       styleForSingleElement = [{flex:1, width:60,height:60,borderRadius:0,alignSelf:'center',margin:5}];
 ``` 
-<img src='test/image/IMG_0982.PNG' width="50" height="100">
+<img src='test/image/IMG_0982.PNG' width="400" height="800">
 
 ```javascript
 const numberInRow = 8,
@@ -69,8 +69,8 @@ const numberInRow = 8,
       heightRatioFromParent = '100%';
       styleForSingleElement = [{flex:1, width:60,height:60,borderRadius:0,alignSelf:'center',margin:5}];
 ```
-<img src='test/image/IMG_0983.PNG'>
-<img src='test/image/IMG_0983.PNG'>
+<img src='test/image/IMG_0983.PNG' width="400" height="800">
+<img src='test/image/IMG_0983.PNG' width="400" height="800">
 
 ## Properties
  name                   | description                                   | type       | default
