@@ -14,8 +14,10 @@ version 0.1.0 in npm.
 
 ##Usage
 
-Import the package and add a few properties to it. The main idea is to pass all the element you want to
-form into an array and set how many elements you want to display in a row by property 'numberInRow'.
+Import the package and add a few properties to it. 
+
+The main idea is to pass all the objects into an array by property 'items'.
+Set how many elements you want to display in a row by property 'numberInRow'.
 
 For now, the only elements you can pass to the item array is hex color string. Hope I can make it more flexible soon.
 
