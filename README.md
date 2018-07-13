@@ -10,9 +10,14 @@ npm i react-native-flex-helper'
 
 #Beta versions
 
-Lots of features can be added to the component, like image items representations. 
+version 0.1.0 in npm.
 
 ##Usage
+
+Import the package and add a few properties to it. The main idea is to pass all the element you want to
+form into an array and set how many elements you want to display in a row by property 'numberInRow'.
+
+For now, the only elements you can pass to the item array is hex color string. Hope I can make it more flexible soon.
 
 ```javascript
 import React, { Component } from 'react';
@@ -62,7 +67,6 @@ const numberInRow = 8,
 
 <img src='test/image/IMG_0982.PNG' width="360" height="640">
 
-
 ```javascript
 const numberInRow = 8,
       totalDisplayItems = 32,
@@ -85,3 +89,9 @@ const numberInRow = 8,
  items     				| array contains the elements you want to align |   Array    | -  isRequired
  onPressFunc        	| clickable function for each items             |   Function | - 
  elementStyle        	| array of css styles for each item             |   Array    | -
+
+
+ ##Further Work
+
+1. Add more features to the items array. 
+2. Add image items representations. 
